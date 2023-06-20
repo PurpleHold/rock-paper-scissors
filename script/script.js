@@ -1,8 +1,11 @@
 // Rock Paper Scissors Game
 
 // Create a function randComputerAnswer() that randomly assign either "Rock", "Paper" or "Scissors" to a variable 
-    // Assign random selection to variable computerSelection
+function randComputerAnswer() {
+    // Assign the 3 possible options to an array
+    // Use a method to assign the variable computerSelection to a random item of the array
     // Return computerSelection
+}
 
 // Create a function getUserAnswer that handles the player's variable creation process
     // Message to the user "Please choose between Rock, Paper, or Scissors."
