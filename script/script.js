@@ -1,10 +1,20 @@
 // Rock Paper Scissors Game
 
-// Create a function randComputerAnswer() that randomly assign either "Rock", "Paper" or "Scissors" to a variable 
+
+// Create a function randComputerAnswer() that randomly returns either "Rock", "Paper" or "Scissors"
 function randComputerAnswer() {
+    // Create a function to generate a random number between two numbers included
+    function randomize(min,max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); 
+    }
+    // Call the function and assign its value to a variable
+    let randNumber = randomize(0,2);
     // Assign the 3 possible options to an array
-    // Use a method to assign the variable computerSelection to a random item of the array
-    // Return computerSelection
+    let gameOptions = ['Rock','Paper','Scissors'];
+    // Return a random item of the array
+    return gameOptions[randNumber];
 }
 
 // Create a function getUserAnswer that handles the player's variable creation process
@@ -28,8 +38,8 @@ function randComputerAnswer() {
     // Return scoreChange
 
 // Create a function playRound() that plays one game of Rock Paper Scissors
-    // Call randComputerAnswer
-    // Call getUserAnswer
+    // Call randComputerAnswer, assign the result to variable computerSelection
+    // Call getUserAnswer, assign the result to variable userSelection
     
     // Compare userSelection with null
         // If it returns true, return userSelection
