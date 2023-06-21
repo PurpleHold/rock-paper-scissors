@@ -17,6 +17,7 @@ function randComputerAnswer() {
     return gameOptions[randNumber];
 }
 
+
 // Create a function getUserAnswer that handles the player's variable creation process
 function getUserAnswer() {
     // Message to the user "Please choose between Rock, Paper, or Scissors."
@@ -29,7 +30,7 @@ function getUserAnswer() {
         }
         // If user cancel exit, call the function back again
         else {
-            getUserAnswer();
+            return getUserAnswer();
         }
     } else {
         // Else, do a case-insensitive comparison with "Rock", OR "Paper", OR "Scissors"
@@ -44,10 +45,11 @@ function getUserAnswer() {
             // If it returns false, ask the user to try again
         else {
             console.log("You have to choose between Rock, Paper, or Scissors. Please try again.");
-            getUserAnswer();
+            return getUserAnswer();
         }
     }    
 }
+
 
 // Create a function getGameResult() that compares userSelection and computerSelection
     // create a new variable scoreChange to record score 
