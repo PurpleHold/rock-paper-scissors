@@ -18,17 +18,36 @@ function randComputerAnswer() {
 }
 
 // Create a function getUserAnswer that handles the player's variable creation process
+function getUserAnswer() {
     // Message to the user "Please choose between Rock, Paper, or Scissors."
-    // Assign user answer to a variable userSelection
-    // Compare the user answer to null
-        // If it returns true, ask user to confirm game exit "Do you really want to exit the game ?"
-            // If it returns true again, return userSelection
-
+    let userInput = prompt("Rock, Paper or Scissors ?");
+    // Compare the user answer to null; if it returns true, ask user to confirm game exit "Do you really want to exit the game ?"
+    if (userInput === null) {
+        if (confirm("Do you really want to exit the game ?")) {
+        // If it returns true again, return input
+            return userInput;
+        }
+        // If user cancel exit, call the function back again
+        else {
+            getUserAnswer();
+        }
+    } else {
         // Else, do a case-insensitive comparison with "Rock", OR "Paper", OR "Scissors"
-            // If it returns false, message to the user : "You have to choose between Rock, Paper, or Scissors. Please try again."
-                // Call the function getUserAnswer
+        let isRock = (userInput.localeCompare("Rock", 'en', { sensitivity: 'base' }));
+        let isPaper = (userInput.localeCompare("Paper", 'en', { sensitivity: 'base' }));
+        let isScissors = (userInput.localeCompare("Scissors", 'en', { sensitivity: 'base' }));
 
-            // If it returns true, return userSelection
+        if ( isRock == 0 || isPaper == 0 || isScissors == 0) {
+            // If it returns true, return userInput
+            return userInput;
+        }
+            // If it returns false, ask the user to try again
+        else {
+            console.log("You have to choose between Rock, Paper, or Scissors. Please try again.");
+            getUserAnswer();
+        }
+    }    
+}
 
 // Create a function getGameResult() that compares userSelection and computerSelection
     // create a new variable scoreChange to record score 
