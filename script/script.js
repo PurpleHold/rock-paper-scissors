@@ -9,7 +9,7 @@ function randComputerAnswer() {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1) + min); 
     }
-    // Call the function and assign its value to a variable
+    // Call the randomize function and assign its value to a variable
     let randNumber = randomize(0,2);
     // Assign the 3 possible options to an array
     let gameOptions = ['Rock','Paper','Scissors'];
@@ -52,32 +52,62 @@ function getUserAnswer() {
 
 
 // Create a function playRound() that plays one game of Rock Paper Scissors
+function playRound() {
     // Call randComputerAnswer, assign the result to variable computerSelection
+    let computerSelection = randComputerAnswer();
+
     // Call getUserAnswer, assign the result to variable userSelection
+    let userSelection = getUserAnswer();
 
-    // Create a function getGameResult() that compares user selection and computer selection
-    function getGameResult() {
-
-    // create a new variable scoreChange to record score 
-    // If computerSelection and userSelection got the same (case insensitive) value, then assign 0 to scoreChange
-    // If (Computer got Rock && User got Scissors), OR if (Computer got Paper && User Rock), OR if (Computer got Scissors && User Paper) assign -1 to scoreChange
-    // Else assign +1 to scoreChange
-    // Return scoreChange
+    // Compare userSelection with null, to allow game to end if user confirmed end during input
+    if (userSelection === null) {
+        return userSelection;
     }
+    // create a new variable scoreChange to record user score
+    let scoreChange;
+    // Assign a new value to scoreChange depending on who wins
+    switch (true) {
+        case ((userSelection.localeCompare("Scissors", 'en', { sensitivity: 'base' }) == 0) && (computerSelection == "Rock")):
+        case ((userSelection.localeCompare("Rock", 'en', { sensitivity: 'base' }) == 0) && (computerSelection == "Paper")):
+        case ((userSelection.localeCompare("Paper", 'en', { sensitivity: 'base' }) == 0) && (computerSelection == "Scissors")):
+            scoreChange = -1;
+            break;
+
+        case ((userSelection.localeCompare("Rock", 'en', { sensitivity: 'base' }) == 0) && (computerSelection == "Scissors")):
+        case ((userSelection.localeCompare("Paper", 'en', { sensitivity: 'base' }) == 0) && (computerSelection == "Rock")):
+        case ((userSelection.localeCompare("Scissors", 'en', { sensitivity: 'base' }) == 0) && (computerSelection == "Paper")):
+            scoreChange = 1;
+            break;
+
+        case (computerSelection.localeCompare(userSelection, 'en', { sensitivity: 'base' }) == 0):
+            scoreChange = 0;
+            break;
+    }
+
+    // Show user a draw / lose / win message 
     
-    // Compare userSelection with null
-        // If it returns true, return userSelection
+    switch (true) {
+        case (scoreChange == 0):
+            console.log("Draw.");
+            break;
+        
+        case (scoreChange == -1):
+            console.log("You lose! " + computerSelection + " beats " + userSelection + " !");
+            break;
+        
+        case (scoreChange == 1):
+            console.log("You win! " + userSelection + " beats " + computerSelection + " !");
+            break;
+    }
 
-        // Else, call getGameResult()
-            // If scoreChange == 0, return "Draw."
+    return scoreChange;
+}
 
-            // If scoreChange == -1, return "You lose! " + computerSelection + " beats " + userSelection + " !"
-
-            // Else, return "You win! " + userSelection + " beats " + computerSelection + " !"
-
-
+/*
 // Create a function game() that handles the score for a 5-round game
+function game() {
     // Create variable finalScore and to keep track of games with 0 as initial value
+    let finalScore = 0;
     // Welcome message to the user, mentioning the 5 rounds
     // Create a loop that repeats 5 times with init value at 1
         // Call playRound()
@@ -91,3 +121,6 @@ function getUserAnswer() {
         // If finalScore < 0 message to the user : "Your final score is : " + finalScore + " You lose... :("
 
     // Exit function
+    return;
+}
+*/
