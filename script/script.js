@@ -22,7 +22,7 @@ function randComputerAnswer() {
 function getUserAnswer() {
     // Message to the user "Please choose between Rock, Paper, or Scissors."
     let userInput = prompt("Rock, Paper or Scissors ?");
-    // Compare the user answer to null; if it returns true, ask user to confirm game exit "Do you really want to exit the game ?"
+    // Compare the user answer to null; if it returns true, ask user to confirm game exit
     if (userInput === null) {
         if (confirm("Do you really want to exit the game ?")) {
         // If it returns true again, return input
@@ -51,16 +51,19 @@ function getUserAnswer() {
 }
 
 
-// Create a function getGameResult() that compares userSelection and computerSelection
+// Create a function playRound() that plays one game of Rock Paper Scissors
+    // Call randComputerAnswer, assign the result to variable computerSelection
+    // Call getUserAnswer, assign the result to variable userSelection
+
+    // Create a function getGameResult() that compares user selection and computer selection
+    function getGameResult() {
+
     // create a new variable scoreChange to record score 
     // If computerSelection and userSelection got the same (case insensitive) value, then assign 0 to scoreChange
     // If (Computer got Rock && User got Scissors), OR if (Computer got Paper && User Rock), OR if (Computer got Scissors && User Paper) assign -1 to scoreChange
     // Else assign +1 to scoreChange
     // Return scoreChange
-
-// Create a function playRound() that plays one game of Rock Paper Scissors
-    // Call randComputerAnswer, assign the result to variable computerSelection
-    // Call getUserAnswer, assign the result to variable userSelection
+    }
     
     // Compare userSelection with null
         // If it returns true, return userSelection
