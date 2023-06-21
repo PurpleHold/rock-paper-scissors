@@ -103,24 +103,44 @@ function playRound() {
     return scoreChange;
 }
 
-/*
+
+
 // Create a function game() that handles the score for a 5-round game
 function game() {
     // Create variable finalScore and to keep track of games with 0 as initial value
     let finalScore = 0;
     // Welcome message to the user, mentioning the 5 rounds
-    // Create a loop that repeats 5 times with init value at 1
-        // Call playRound()
-        // Check if user wants to end game (userSelection == null), if it's true, exit loop or function ?
-        // Else, add scoreChange to finalScore
+    console.log("Here we go for 5-set game of Rock Paper Scissors!");
+    // Create a loop that repeats 5 times
+    for (let set = 0; set < 5; set++) {
+  
+        // Display set N°, launch game and assign its return score to a variable
+        console.log("Game N°"+(set+1));
+        gameScore = playRound();
 
-    // Check if user wants to end game (userSelection == null), if it's true, exit loop or function ?
+        // Check if user chose to exit game
+        if (gameScore === null) {
+            return;
+        }
+        else {
+        // Add the score of each round to the final score variable, show the outcome
+        finalScore = (finalScore + gameScore);
+        console.log("Your current score is " + finalScore + " !");
+        }
+      }
+      
     // At the end of the 5 games, display player score
-        // If finalScore == 0 message to the user : "Your final score is : " + finalScore + " It's a tie game."
-        // If finalScore >= 1 message to the user : "Your final score is : " + finalScore + " You win ! :)"
-        // If finalScore < 0 message to the user : "Your final score is : " + finalScore + " You lose... :("
+    
+    if (finalScore == 0) {
+        console.log("Your final score is : " + finalScore + " It's a tie game.");
+    } else if (finalScore >= 1) {
+        console.log("Your final score is : " + finalScore + " You win ! :)");
+    } else {
+        console.log("Your final score is : " + finalScore + " You lose... :(");
+    }
 
     // Exit function
     return;
 }
-*/
+
+
