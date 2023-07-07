@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="script/script.js"></script>
+    <script src="script/script.js" defer></script>
+    <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="info-container">
+        <h1>Rock Paper Scissors game</h1>
+        <p class="intro">Let's play a 5-round Rock-Paper-Scissors game!</p>
+        <p class="game-info"></p>
+    </div>
+    <div class ="game-container">
+        <div></div>
+        <div class ="circle-container">
+            <div class="final-results hidden">
+                <p class="win-lose"></p>
+                <p class="score-is">Your final score is :</p>
+                <p class="big-score"></p>
+                <a href=" " class="retro-btn">Play Again</a>
+            </div>
+            <div class="choice">
+                <img class="selection" id="rock" src="assets/rock.png" aria-label="Fist-shaped hand that looks like a rock">
+                <img class="selection" id="paper" src="assets/paper.png" aria-label="Flat hand, shaped like a sheet of paper">
+                <img class="selection" id="scissors" src="assets/scissors.png" aria-label="Hand shaped like a pair of scissors">
+            </div>
+        </div>
+        <div></div>
+    </div>
+    <div class="round-results-container">
+        <p class="round-results"></p>
+    </div>
+    <div class="credits">
+        <a href="https://www.flaticon.com/free-icons/rock-paper-scissors" title="rock paper scissors icons">Rock paper scissors icons created by Freepik - Flaticon</a>
+    </div>
 </body>
 </html>
